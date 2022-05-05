@@ -5,6 +5,7 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using EC = SeleniumExtras.WaitHelpers.ExpectedConditions;
+using Pract31.PageObjects;
 
 namespace Pract31
 {
@@ -22,13 +23,15 @@ namespace Pract31
         [Test] 
         public void TestGoogleSearch()
         {
-
+            HomePage naslovna = new HomePage(driver);
+            naslovna.GoToPage();
+            naslovna.SearchFor("C# Selenium PageObject Model");
         }
         [TearDown]
         public void TearDown()
         {
             driver.Close();
         }
-            }
+            
     }
 }
